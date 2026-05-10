@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Advisory — Fee-Only SEBI RIA | Ankur Kapur</title>
+  <meta name="description" content="Fee-only, conflict-free financial advisory for a select group of families. SEBI Registered Investment Adviser. No commissions, no trail, no product shelf.">
+  <meta name="author" content="Ankur Kapur">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Financial Advisory — Fee-Only SEBI RIA | Ankur Kapur">
+  <meta property="og:description" content="Fee-only, conflict-free financial advisory for a select group of families. SEBI Registered Investment Adviser. No commissions, no trail, no product shelf.">
+  <meta property="og:url" content="https://ankurkapur.in/advisory.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ankurkapur.in/Ankur_Kapur_01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Financial Advisory — Fee-Only SEBI RIA | Ankur Kapur">
+  <meta name="twitter:description" content="Fee-only, conflict-free financial advisory for a select group of families. SEBI Registered Investment Adviser. No commissions, no trail, no product shelf.">
+  <link rel="canonical" href="https://ankurkapur.in/advisory.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --paper: #f5f2ed;
+    --warm-mid: #8c7b6b;
+    --accent: #c4651a;
+    --accent-light: #e8d5c0;
+    --border: #ddd8d0;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--warm-mid);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 2px;
+    font-size: 11px !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 80px 56px 64px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.02;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .page-headline em { font-style: italic; color: var(--accent); }
+  .page-header-right {
+    font-size: 17px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+
+  /* NOT FOR EVERYONE */
+  .not-everyone {
+    background: var(--ink);
+    padding: 72px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .ne-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .ne-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .ne-headline em { font-style: italic; color: var(--accent); }
+  .ne-col-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .ne-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ne-list li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+    font-weight: 300;
+  }
+  .ne-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* WHAT YOU GET */
+  .what-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .what-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .what-card {
+    padding: 40px 32px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .what-card:last-child { border-right: none; }
+  .what-card:hover { background: var(--white); }
+  .what-icon {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .what-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .what-desc {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.75;
+  }
+
+  /* LIFE BUCKETS */
+  .buckets-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .buckets-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 56px;
+    align-items: end;
+  }
+  .buckets-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .buckets-headline em { font-style: italic; color: var(--accent); }
+  .buckets-body {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .buckets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+  }
+  .bucket-card {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .bucket-card:last-child { border-right: none; }
+  .bucket-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+  .bucket-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .bucket-subtitle {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .bucket-desc {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.7;
+  }
+
+  /* HOW IT WORKS */
+  .process-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .process-step {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+  }
+  .process-step:last-child { border-right: none; }
+  .step-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .step-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.7;
+  }
+
+  /* FEES */
+  .fees-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    background: var(--white);
+  }
+  .fees-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .fees-headline em { font-style: italic; color: var(--accent); }
+  .fees-body {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .fees-body p + p { margin-top: 16px; }
+  .fees-right {}
+  .fee-item {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .fee-item:first-child { padding-top: 0; }
+  .fee-item:last-child { border-bottom: none; }
+  .fee-type {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .fee-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .fee-desc {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.65;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--ink);
+    padding: 88px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .cta-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+  }
+  .cta-headline em { font-style: italic; color: var(--accent); }
+  .cta-body {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+  .cta-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.7;
+    margin-top: 20px;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    display: inline-block;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--warm-mid);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Ankur Kapur<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="advisory.html" class="active">Advisory</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div>
+    <div class="page-eyebrow">Financial Advisory · SEBI RIA</div>
+    <h1 class="page-headline">Advice with<br>nothing to<br><em>sell.</em></h1>
+  </div>
+  <div class="page-header-right">
+    Fee-only, conflict-free financial advisory for a small number of families. If you want a complete, independent view of your financial life — not a product recommendation dressed as advice — this is where that conversation begins.
+  </div>
+</section>
+
+<!-- NOT FOR EVERYONE -->
+<section class="not-everyone">
+  <div>
+    <div class="ne-eyebrow">Before You Read Further</div>
+    <h2 class="ne-headline">This is <em>not</em> for everyone.</h2>
+  </div>
+  <div>
+    <div class="ne-col-title">This is for you if</div>
+    <ul class="ne-list">
+      <li>You want advice, not products</li>
+      <li>You are willing to pay directly for independent thinking</li>
+      <li>You have financial complexity — income, assets, goals — that needs proper structuring</li>
+      <li>You are at a life inflection point: career change, liquidity event, retirement, legacy planning</li>
+      <li>You want one adviser who sees the complete picture</li>
+    </ul>
+  </div>
+  <div>
+    <div class="ne-col-title">This is not for you if</div>
+    <ul class="ne-list">
+      <li>You are looking for stock tips or short-term calls</li>
+      <li>You want someone to manage a small corpus</li>
+      <li>You prefer a relationship driven by product transactions</li>
+      <li>You are not ready to engage seriously with your own financial plan</li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-section">
+  <div class="section-label">What Advisory Covers</div>
+  <div class="what-grid">
+    <div class="what-card">
+      <div class="what-icon">01</div>
+      <div class="what-title">Goal Planning & Asset Allocation</div>
+      <div class="what-desc">A clear map of where you are, where you want to go, and how your assets should be structured to get there — across every time horizon and life stage.</div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">02</div>
+      <div class="what-title">Direct Equity & Fixed Income</div>
+      <div class="what-desc">Portfolio construction across mutual funds, direct equity, bonds, and alternatives. Rigorous, research-backed, and built around your specific risk profile.</div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">03</div>
+      <div class="what-title">Tax & Cash Flow Planning</div>
+      <div class="what-desc">Structuring income, investments, and withdrawals to be tax-efficient across your working years and into retirement. Coordinated with your CA where needed.</div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">04</div>
+      <div class="what-title">Insurance & Risk</div>
+      <div class="what-desc">An honest assessment of what you need — life, health, liability — and what you do not. No insurance products are sold. The advice is purely diagnostic.</div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">05</div>
+      <div class="what-title">Retirement Planning</div>
+      <div class="what-desc">Building a corpus that sustains your life on your terms. Distribution planning, withdrawal sequencing, inflation management — structured well before you need it.</div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">06</div>
+      <div class="what-title">Estate & Legacy</div>
+      <div class="what-desc">Wills, nominations, trusts, succession — making sure what you have built reaches who you intend, in the way you intend. Coordinated with legal advisers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE BUCKETS -->
+<section class="buckets-section">
+  <div class="buckets-intro">
+    <h2 class="buckets-headline">A framework built around<br><em>your life stage,</em><br>not the market cycle.</h2>
+    <p class="buckets-body">Every advisory engagement is organised around a four-stage life framework. Your financial plan looks very different depending on where you are. The framework ensures the advice is always calibrated to that reality — not a generic template applied to everyone.</p>
+  </div>
+  <div class="buckets-grid">
+    <div class="bucket-card">
+      <div class="bucket-num">I</div>
+      <div class="bucket-title">Accumulation</div>
+      <div class="bucket-subtitle">Building the base</div>
+      <div class="bucket-desc">Early career to peak earning years. The focus is on building wealth systematically — saving rate, asset allocation, compounding, and avoiding expensive mistakes.</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">II</div>
+      <div class="bucket-title">Transition</div>
+      <div class="bucket-subtitle">The inflection point</div>
+      <div class="bucket-desc">Career changes, business exits, liquidity events, or major life shifts. High-stakes decisions that require clear thinking and careful structuring.</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">III</div>
+      <div class="bucket-title">Distribution</div>
+      <div class="bucket-subtitle">Living from what you built</div>
+      <div class="bucket-desc">Retirement and beyond. The shift from accumulation to sustainable withdrawal — making the corpus last, managing tax, and preserving optionality.</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">IV</div>
+      <div class="bucket-title">Legacy</div>
+      <div class="bucket-subtitle">What you leave behind</div>
+      <div class="bucket-desc">Succession, estate planning, philanthropy, and intergenerational wealth transfer. Ensuring the work of a lifetime is passed on with intention.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process-section">
+  <div class="section-label">How the Engagement Works</div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">Step 01</div>
+      <div class="step-title">Initial Conversation</div>
+      <div class="step-desc">A 45-minute call to understand your situation, goals, and whether there is a genuine fit. No obligation on either side. Most useful questions come from you.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">Step 02</div>
+      <div class="step-title">Financial Discovery</div>
+      <div class="step-desc">A structured process to map your complete financial picture — assets, liabilities, income, goals, risk, insurance, estate. Thorough and confidential.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">Step 03</div>
+      <div class="step-title">The Plan</div>
+      <div class="step-desc">A written financial plan with clear recommendations across every relevant area. Not a product brochure — a real document you can act on independently if you choose.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">Step 04</div>
+      <div class="step-title">Ongoing Advisory</div>
+      <div class="step-desc">Quarterly reviews, annual plan updates, and access when decisions need to be made. A long-term relationship, not a one-time transaction.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="fees-section">
+  <div>
+    <h2 class="fees-headline">Transparent.<br>Fixed.<br><em>Fee-only.</em></h2>
+    <div class="fees-body">
+      <p>My fees are fixed and agreed upfront. There are no commissions, no trail income, and no hidden charges from product manufacturers. What you pay is what I earn — nothing else.</p>
+      <p>Fee details are shared during the initial conversation. They are structured to reflect the complexity of your situation, not the size of your portfolio.</p>
+    </div>
+  </div>
+  <div class="fees-right">
+    <div class="fee-item">
+      <div class="fee-type">One-Time</div>
+      <div class="fee-title">Comprehensive Financial Plan</div>
+      <div class="fee-desc">Full discovery, written plan across all areas, and a detailed presentation session. Standalone engagement for those who want a plan they can execute themselves.</div>
+    </div>
+    <div class="fee-item">
+      <div class="fee-type">Annual Retainer</div>
+      <div class="fee-title">Ongoing Advisory Relationship</div>
+      <div class="fee-desc">Quarterly reviews, plan updates, priority access, and support across all financial decisions through the year. For clients who want a long-term thinking partner.</div>
+    </div>
+    <div class="fee-item">
+      <div class="fee-type">Note</div>
+      <div class="fee-title">No minimum portfolio size</div>
+      <div class="fee-desc">Advisory is taken on based on complexity and fit — not corpus size. The right question is whether the engagement will add real value, not whether the numbers are large enough.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-headline">Start with a<br><em>conversation.</em></h2>
+  <div>
+    <p class="cta-body">The first step is a 45-minute call — no forms, no pitch, no obligation. Tell me where you are and what you are trying to figure out. We will know quickly whether this is the right fit.</p>
+    <a href="#" class="btn-primary">Request a Conversation →</a>
+    <p class="cta-note">Advisory capacity is limited. If there is no availability at the moment, you will be added to a short waitlist.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ankur Kapur<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="contact.html#disclosures">Disclosures</a></li>
+    <li><a href="contact.html#privacy">Privacy</a></li>
+    <li><a href="contact.html#sebi">SEBI Registration</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Ankur Kapur · ankurkapur.in</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Articles on Investing & Personal Finance | Ankur Kapur</title>
+  <meta name="description" content="Articles on personal finance, equity investing, and frameworks that make better decisions. Free, always. Published at ankurkapur.in and on Substack.">
+  <meta name="author" content="Ankur Kapur">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Writing — Articles on Investing & Personal Finance | Ankur Kapur">
+  <meta property="og:description" content="Articles on personal finance, equity investing, and frameworks that make better decisions. Free, always. Published at ankurkapur.in and on Substack.">
+  <meta property="og:url" content="https://ankurkapur.in/writing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ankurkapur.in/Ankur_Kapur_01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Writing — Articles on Investing & Personal Finance | Ankur Kapur">
+  <meta name="twitter:description" content="Articles on personal finance, equity investing, and frameworks that make better decisions. Free, always. Published at ankurkapur.in and on Substack.">
+  <link rel="canonical" href="https://ankurkapur.in/writing.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --paper: #f5f2ed;
+    --warm-mid: #8c7b6b;
+    --accent: #c4651a;
+    --accent-light: #e8d5c0;
+    --border: #ddd8d0;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--warm-mid);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 2px;
+    font-size: 11px !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 80px 56px 64px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.02;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .page-headline em { font-style: italic; color: var(--accent); }
+  .page-header-right {
+    font-size: 17px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    padding: 0 56px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0;
+    background: var(--white);
+  }
+  .filter-btn {
+    padding: 18px 28px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .filter-btn.active {
+    color: var(--ink);
+    border-bottom: 2px solid var(--accent);
+  }
+  .filter-btn:hover { color: var(--ink); }
+
+  /* FEATURED ARTICLE */
+  .featured-section {
+    padding: 64px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: box-shadow 0.2s;
+  }
+  .featured-card:hover { box-shadow: 0 4px 32px rgba(0,0,0,0.06); }
+  .featured-left {
+    padding: 48px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .featured-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .featured-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .featured-excerpt {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    flex-grow: 1;
+    margin-bottom: 32px;
+  }
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .meta-date {
+    font-size: 12px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+  .read-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 2px;
+  }
+  .featured-right {
+    padding: 48px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .featured-pullquote {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+    border-left: 3px solid var(--accent);
+    padding-left: 28px;
+  }
+  .substack-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding-left: 28px;
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .substack-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ARTICLES GRID */
+  .articles-section {
+    padding: 64px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 36px;
+  }
+  .articles-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+  .substack-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 2px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .article-card {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .article-card:hover { background: var(--white); }
+  .article-card:nth-child(3n) { border-right: none; }
+  .article-card:nth-last-child(-n+3) { border-bottom: none; }
+
+  .article-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .article-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .article-excerpt {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .article-date {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+  .article-source {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .article-source.substack { color: var(--accent); border-color: var(--accent-light); }
+
+  /* CATEGORIES */
+  .categories-section {
+    padding: 64px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .category-card {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .category-card:last-child { border-right: none; }
+  .category-card:hover { background: var(--paper); }
+  .category-count {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .category-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .category-desc {
+    font-size: 12px;
+    color: var(--warm-mid);
+    line-height: 1.65;
+  }
+
+  /* SUBSTACK CTA */
+  .substack-section {
+    background: var(--ink);
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .ss-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .ss-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+  .ss-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .ss-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ss-input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 15px 20px;
+    border-radius: 2px;
+    color: var(--white);
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    outline: none;
+  }
+  .ss-input::placeholder { color: rgba(255,255,255,0.25); }
+  .ss-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 2px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .ss-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 0.03em;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--warm-mid);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Ankur Kapur<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="writing.html" class="active">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div>
+    <div class="page-eyebrow">Writing · Ideas · Analysis</div>
+    <h1 class="page-headline">Thinking<br>out<br><em>loud.</em></h1>
+  </div>
+  <div class="page-header-right">
+    Articles on personal finance, equity investing, and the frameworks that make better decisions. Published here and on Substack. Always free. No agenda — just ideas worth sharing.
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">Personal Finance</button>
+  <button class="filter-btn">Equity Research</button>
+  <button class="filter-btn">Investing Frameworks</button>
+  <button class="filter-btn">Markets & Economy</button>
+  <button class="filter-btn">On Substack</button>
+</div>
+
+<!-- FEATURED -->
+<section class="featured-section">
+  <div class="section-label">Latest</div>
+  <div class="featured-card">
+    <div class="featured-left">
+      <div>
+        <div class="featured-tag">Investing Frameworks</div>
+        <h2 class="featured-title">The Four Questions I Ask Before Buying Any Stock</h2>
+        <p class="featured-excerpt">Business quality, management integrity, financial health, valuation — in that order. Most investors get the sequence wrong, which means they answer the wrong question first. Here is why order matters more than most people think, and how to apply the framework to Indian listed companies.</p>
+      </div>
+      <div class="featured-meta">
+        <span class="meta-date">May 2026 · 10 min read</span>
+        <a href="#" class="read-link">Read Article →</a>
+      </div>
+    </div>
+    <div class="featured-right">
+      <div class="featured-pullquote">
+        "Valuation is the last question, not the first. If the business is not good enough, the price does not matter."
+      </div>
+      <div class="substack-badge">
+        <span class="substack-dot"></span>
+        Also available on Substack
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="articles-section">
+  <div class="articles-header">
+    <h2 class="articles-title">All Writing</h2>
+    <a href="#" class="substack-link">
+      <span>Read on Substack</span> →
+    </a>
+  </div>
+  <div class="articles-grid">
+
+    <div class="article-card">
+      <div class="article-tag">Personal Finance</div>
+      <div class="article-title">Why Most Indians Are Underinsured — And What To Do About It</div>
+      <div class="article-excerpt">Insurance is the foundation. Without it, everything else you build is at risk. How to size coverage properly at every life stage.</div>
+      <div class="article-footer">
+        <span class="article-date">May 2026 · 8 min</span>
+        <span class="article-source">Site</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Equity Research</div>
+      <div class="article-title">What Hospital Sector Consolidation Means for Long-Term Investors</div>
+      <div class="article-excerpt">The top chains are gaining share faster than the market realises. A framework for thinking about healthcare as a compounding sector.</div>
+      <div class="article-footer">
+        <span class="article-date">Apr 2026 · 12 min</span>
+        <span class="article-source substack">Substack</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Investing Frameworks</div>
+      <div class="article-title">The Four Questions I Ask Before Buying Any Stock</div>
+      <div class="article-excerpt">Business quality, management integrity, financial health, valuation — in that order. Why sequence matters more than most people think.</div>
+      <div class="article-footer">
+        <span class="article-date">Apr 2026 · 10 min</span>
+        <span class="article-source substack">Substack</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Personal Finance</div>
+      <div class="article-title">How to Think About Asset Allocation Across Life Stages</div>
+      <div class="article-excerpt">The right equity-debt mix at 30 is different from 50. A framework that adjusts with you, not one that was set once and never revisited.</div>
+      <div class="article-footer">
+        <span class="article-date">Mar 2026 · 9 min</span>
+        <span class="article-source">Site</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Markets & Economy</div>
+      <div class="article-title">India's Defence Sector — Reading the Cycle Correctly</div>
+      <div class="article-excerpt">Government capex cycles in defence have a pattern. How to identify where we are in it, and what that means for long-term investors.</div>
+      <div class="article-footer">
+        <span class="article-date">Mar 2026 · 11 min</span>
+        <span class="article-source substack">Substack</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Investing Frameworks</div>
+      <div class="article-title">Reading Management Quality — A Practical Checklist</div>
+      <div class="article-excerpt">What promoters say in annual reports is less important than what they do with capital. A structured approach to assessing management in Indian listed companies.</div>
+      <div class="article-footer">
+        <span class="article-date">Feb 2026 · 13 min</span>
+        <span class="article-source substack">Substack</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Personal Finance</div>
+      <div class="article-title">The Real Cost of Delaying Your Term Insurance</div>
+      <div class="article-excerpt">Every year you wait, the premium goes up and the window narrows. The numbers on why this is the one financial decision that genuinely cannot wait.</div>
+      <div class="article-footer">
+        <span class="article-date">Feb 2026 · 6 min</span>
+        <span class="article-source">Site</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Equity Research</div>
+      <div class="article-title">Special Situations in Indian Markets — What to Look For</div>
+      <div class="article-excerpt">Demergers, management changes, sector dislocations — where the market misprices transition and patient investors find their edge.</div>
+      <div class="article-footer">
+        <span class="article-date">Jan 2026 · 14 min</span>
+        <span class="article-source substack">Substack</span>
+      </div>
+    </div>
+
+    <div class="article-card">
+      <div class="article-tag">Markets & Economy</div>
+      <div class="article-title">Gold in a Portfolio — How Much, When, and Why</div>
+      <div class="article-excerpt">Gold is not an investment. It is insurance. Here is how to size it correctly and stop confusing the two roles it is being asked to play.</div>
+      <div class="article-footer">
+        <span class="article-date">Jan 2026 · 8 min</span>
+        <span class="article-source">Site</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="section-label">Browse by Topic</div>
+  <div class="categories-grid">
+    <div class="category-card">
+      <div class="category-count">24</div>
+      <div class="category-name">Personal Finance</div>
+      <div class="category-desc">Insurance, tax, budgeting, goal planning, and building a financial life that holds up under pressure.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-count">18</div>
+      <div class="category-name">Equity Research</div>
+      <div class="category-desc">Company analysis, sector deep dives, and what the numbers in Indian filings actually mean.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-count">15</div>
+      <div class="category-name">Investing Frameworks</div>
+      <div class="category-desc">The mental models, checklists, and analytical approaches that produce better investment decisions over time.</div>
+    </div>
+    <div class="category-card">
+      <div class="category-count">11</div>
+      <div class="category-name">Markets & Economy</div>
+      <div class="category-desc">Macro context, sector cycles, and how global events translate into decisions for Indian investors.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSTACK CTA -->
+<section class="substack-section">
+  <div>
+    <div class="ss-eyebrow">The Informed Investor · Weekly on Substack</div>
+    <h2 class="ss-headline">Every article.<br>Every week.<br>In your inbox.</h2>
+    <p class="ss-sub">Subscribe on Substack and get every new piece delivered directly — plus the subscriber-only newsletter with research, frameworks, and market commentary.</p>
+  </div>
+  <div class="ss-form">
+    <input type="text" class="ss-input" placeholder="Your name">
+    <input type="email" class="ss-input" placeholder="Your email address">
+    <button class="ss-btn">Subscribe on Substack →</button>
+    <div class="ss-note">Free to subscribe. No spam. Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ankur Kapur<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="contact.html#disclosures">Disclosures</a></li>
+    <li><a href="contact.html#privacy">Privacy</a></li>
+    <li><a href="contact.html#sebi">SEBI Registration</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Ankur Kapur · ankurkapur.in</div>
+</footer>
+
+</body>
+</html>

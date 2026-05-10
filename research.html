@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equity Research — SEBI RA Subscription | Ankur Kapur</title>
+  <meta name="description" content="Institutional-quality equity research, model portfolios, and sector deep dives for serious long-term investors. Subscribe on Substack and Smallcase.">
+  <meta name="author" content="Ankur Kapur">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Equity Research — SEBI RA Subscription | Ankur Kapur">
+  <meta property="og:description" content="Institutional-quality equity research, model portfolios, and sector deep dives for serious long-term investors. Subscribe on Substack and Smallcase.">
+  <meta property="og:url" content="https://ankurkapur.in/research.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ankurkapur.in/Ankur_Kapur_01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Equity Research — SEBI RA Subscription | Ankur Kapur">
+  <meta name="twitter:description" content="Institutional-quality equity research, model portfolios, and sector deep dives for serious long-term investors. Subscribe on Substack and Smallcase.">
+  <link rel="canonical" href="https://ankurkapur.in/research.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --paper: #f5f2ed;
+    --warm-mid: #8c7b6b;
+    --accent: #c4651a;
+    --accent-light: #e8d5c0;
+    --border: #ddd8d0;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--warm-mid);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 2px;
+    font-size: 11px !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 80px 56px 64px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.02;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .page-headline em { font-style: italic; color: var(--accent); }
+  .page-header-right {
+    font-size: 17px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+
+  /* WHAT THIS IS */
+  .what-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .what-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .what-headline em { font-style: italic; color: var(--accent); }
+  .what-body {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .what-body p + p { margin-top: 16px; }
+
+  /* WHAT YOU GET */
+  .gets-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .gets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .get-card {
+    padding: 40px 32px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .get-card:last-child { border-right: none; }
+  .get-card:hover { background: var(--paper); }
+  .get-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .get-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .get-desc {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.75;
+  }
+
+  /* SAMPLE RESEARCH */
+  .sample-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sample-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+  }
+  .sample-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+  .sample-note {
+    font-size: 12px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+    font-style: italic;
+  }
+  .reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+  }
+  .report-card {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .report-card:last-child { border-right: none; }
+  .report-card:hover { background: var(--white); }
+  .report-sector {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .report-company {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .report-type {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .report-excerpt {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.65;
+  }
+  .report-lock {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .lock-icon {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+  }
+
+  /* HOW I RESEARCH */
+  .method-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--ink);
+  }
+  .method-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .method-item {}
+  .method-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .method-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .method-title em { font-style: italic; color: var(--accent); }
+  .method-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* PLATFORMS */
+  .platforms-section {
+    padding: 72px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .platform-card {
+    padding: 48px 40px;
+    border-right: 1px solid var(--border);
+  }
+  .platform-card:last-child { border-right: none; }
+  .platform-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .platform-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .platform-desc {
+    font-size: 14px;
+    color: var(--warm-mid);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .platform-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .platform-includes li {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+    list-style: none;
+  }
+  .platform-includes li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 12px;
+  }
+  .platform-btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--ink);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* WHO IT IS FOR */
+  .who-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .who-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .who-headline em { font-style: italic; color: var(--accent); }
+  .who-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+  }
+  .who-list li {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.65;
+    padding-left: 20px;
+    position: relative;
+    font-weight: 300;
+  }
+  .who-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--ink);
+    padding: 88px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .cta-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--white);
+  }
+  .cta-headline em { font-style: italic; color: var(--accent); }
+  .cta-body {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .btn-secondary {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--warm-mid);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Ankur Kapur<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div>
+    <div class="page-eyebrow">Equity Research · SEBI RA</div>
+    <h1 class="page-headline">Research you<br>can think<br><em>with.</em></h1>
+  </div>
+  <div class="page-header-right">
+    Institutional-quality equity research for investors who do their own thinking. No tips, no noise, no calls to action. Just rigorous analysis — on businesses, sectors, and the frameworks that make better investors.
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section class="what-section">
+  <div>
+    <h2 class="what-headline">Not a tip service.<br>A <em>thinking</em> partner.</h2>
+  </div>
+  <div class="what-body">
+    <p>Most equity research in India is built around a call — buy, sell, hold, target price. That is not what this is. The research here is designed to give you a complete picture of a business: its quality, its management, its financials, and what a reasonable range of outcomes might look like.</p>
+    <p>The research operates within four frameworks. Growth at Reasonable Price — businesses that compound quietly, priced for reasonable rather than perfect outcomes. Special Situations — where corporate events or market misreading create a temporary gap between price and value. Business Transformation — companies in the middle of a structural shift that the market has not yet fully priced. And Value Investing — patient capital allocated to businesses trading well below what a rational buyer would pay. All four adapted for how Indian markets actually work.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="gets-section">
+  <div class="section-label">What Subscribers Receive</div>
+  <div class="gets-grid">
+    <div class="get-card">
+      <div class="get-num">01</div>
+      <div class="get-title">Deep Dive Company Reports</div>
+      <div class="get-desc">Full investment analysis on individual companies — business quality, management assessment, financial health, red flags, valuation, and thesis. Typically 20–40 pages.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">02</div>
+      <div class="get-title">Model Portfolio</div>
+      <div class="get-desc">A transparent, tracked model portfolio on Smallcase. Every addition, removal, and rebalance is documented with reasoning. You see exactly what I hold and why.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">03</div>
+      <div class="get-title">Sector Overviews</div>
+      <div class="get-desc">Periodic deep dives into Indian sectors — structural tailwinds, competitive dynamics, valuation ranges, and where the interesting opportunities tend to sit.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">04</div>
+      <div class="get-title">Framework Notes</div>
+      <div class="get-desc">Shorter pieces on how to think about specific analytical problems — reading management quality, spotting accounting stress, understanding capital allocation patterns.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">05</div>
+      <div class="get-title">Quarterly Updates</div>
+      <div class="get-desc">Result season commentary on portfolio companies — what changed, what did not, and whether the original thesis remains intact. No noise between quarters.</div>
+    </div>
+    <div class="get-card">
+      <div class="get-num">06</div>
+      <div class="get-title">Subscriber Q&amp;A</div>
+      <div class="get-desc">Periodic open sessions where subscribers can ask questions on portfolio companies, analytical approach, or specific stocks they are thinking about.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE RESEARCH -->
+<section class="sample-section">
+  <div class="sample-header">
+    <h2 class="sample-title">Recent Research</h2>
+    <span class="sample-note">Subscriber access only · Sample summaries shown</span>
+  </div>
+  <div class="reports-grid">
+    <div class="report-card">
+      <div class="report-sector">Healthcare · Hospitals</div>
+      <div class="report-company">Max Healthcare</div>
+      <div class="report-type">Deep Dive · 34 pages</div>
+      <div class="report-excerpt">A study in asset-light expansion and brand-driven pricing power. The Delhi NCR moat is real — the question is whether it travels. Full management quality assessment and forensic review included.</div>
+      <div class="report-lock"><span class="lock-icon">🔒</span> Subscriber only</div>
+    </div>
+    <div class="report-card">
+      <div class="report-sector">Agrochemicals</div>
+      <div class="report-company">Coromandel International</div>
+      <div class="report-type">Deep Dive · 28 pages</div>
+      <div class="report-excerpt">One of India's most consistent compounders in a sector most analysts misread. Capital allocation discipline, subsidy dependency analysis, and a realistic look at China import risk.</div>
+      <div class="report-lock"><span class="lock-icon">🔒</span> Subscriber only</div>
+    </div>
+    <div class="report-card">
+      <div class="report-sector">Sector Overview · 54 Companies</div>
+      <div class="report-company">Indian Hospitals Sector</div>
+      <div class="report-type">Sector Report · Full coverage</div>
+      <div class="report-excerpt">A complete mapping of the Indian hospital sector — consolidation trends, ARPOB benchmarking, occupancy analysis, and a valuation framework across 54 listed companies.</div>
+      <div class="report-lock"><span class="lock-icon">🔒</span> Subscriber only</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I RESEARCH -->
+<section class="method-section">
+  <div class="method-eyebrow">The Research Process</div>
+  <div class="method-grid">
+    <div class="method-item">
+      <div class="method-num">01</div>
+      <div class="method-title">Business <em>Quality</em></div>
+      <div class="method-desc">What does this company actually do well? Where is the moat, if one exists? How durable is it? This is the first and most important question — valuation is secondary.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-num">02</div>
+      <div class="method-title">Management <em>Integrity</em></div>
+      <div class="method-desc">Track record, capital allocation history, related-party transactions, promoter behaviour, and what management says versus what they do. India-specific dynamics get full weight.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-num">03</div>
+      <div class="method-title">Financial <em>Health</em></div>
+      <div class="method-desc">A forensic read of the financials — cash flow quality, working capital trends, debt structure, and accounting red flags. Schilit's framework applied rigorously to Indian filings.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-num">04</div>
+      <div class="method-title">Valuation &amp; <em>Margin of Safety</em></div>
+      <div class="method-desc">A range of outcomes, not a point estimate. What does the business need to deliver for the current price to make sense? Where is the downside if the thesis is wrong?</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="platforms-section">
+  <div class="section-label">Where to Subscribe</div>
+  <div class="platforms-grid">
+    <div class="platform-card">
+      <div class="platform-name">Substack</div>
+      <div class="platform-tag">Research Reports & Framework Notes</div>
+      <div class="platform-desc">All written research — company deep dives, sector overviews, framework notes, and quarterly updates — published on Substack. Annual subscription.</div>
+      <ul class="platform-includes">
+        <li>Full company research reports</li>
+        <li>Sector deep dives</li>
+        <li>Framework and analytical notes</li>
+        <li>Quarterly result commentary</li>
+        <li>Subscriber Q&amp;A access</li>
+      </ul>
+      <a href="#" class="platform-btn">Subscribe on Substack →</a>
+    </div>
+    <div class="platform-card">
+      <div class="platform-name">Smallcase</div>
+      <div class="platform-tag">Model Portfolio & Tracking</div>
+      <div class="platform-desc">The model portfolio lives on Smallcase — fully transparent, tracked, and updated with documented reasoning for every change. Annual subscription.</div>
+      <ul class="platform-includes">
+        <li>Live model portfolio</li>
+        <li>Every buy, sell, and rebalance documented</li>
+        <li>Portfolio performance tracking</li>
+        <li>Rationale notes for all changes</li>
+        <li>Direct portfolio comparison tools</li>
+      </ul>
+      <a href="#" class="platform-btn">Subscribe on Smallcase →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT IS FOR -->
+<section class="who-section">
+  <h2 class="who-headline">For investors who<br>think <em>independently.</em></h2>
+  <ul class="who-list">
+    <li>You manage your own direct equity portfolio and want serious research as a foundation</li>
+    <li>You are tired of brokerage research written around a target price rather than a business</li>
+    <li>You want to understand why a stock is interesting — not just whether to buy it</li>
+    <li>You are willing to read carefully and think for yourself</li>
+    <li>You have a long enough time horizon to let good businesses compound</li>
+    <li>You are not looking for momentum calls, F&amp;O ideas, or short-term trades</li>
+  </ul>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-headline">Research built<br>to make you<br><em>better.</em></h2>
+  <div>
+    <p class="cta-body">Subscribe on Substack for written research, or Smallcase for the model portfolio. Both are annual subscriptions. You can start with either — many subscribers hold both.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-primary">Subscribe on Substack →</a>
+      <a href="#" class="btn-secondary">View on Smallcase →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ankur Kapur<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="contact.html#disclosures">Disclosures</a></li>
+    <li><a href="contact.html#privacy">Privacy</a></li>
+    <li><a href="contact.html#sebi">SEBI Registration</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Ankur Kapur · ankurkapur.in</div>
+</footer>
+
+</body>
+</html>

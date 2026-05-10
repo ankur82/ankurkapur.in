@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — Personal Finance & Direct Equity | Ankur Kapur</title>
+  <meta name="description" content="Two self-paced video courses: Personal Finance Masterclass and Direct Equity Investing. Built for Indian investors. Lifetime access. No agenda.">
+  <meta name="author" content="Ankur Kapur">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Courses — Personal Finance & Direct Equity | Ankur Kapur">
+  <meta property="og:description" content="Two self-paced video courses: Personal Finance Masterclass and Direct Equity Investing. Built for Indian investors. Lifetime access. No agenda.">
+  <meta property="og:url" content="https://ankurkapur.in/courses.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ankurkapur.in/Ankur_Kapur_01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Courses — Personal Finance & Direct Equity | Ankur Kapur">
+  <meta name="twitter:description" content="Two self-paced video courses: Personal Finance Masterclass and Direct Equity Investing. Built for Indian investors. Lifetime access. No agenda.">
+  <link rel="canonical" href="https://ankurkapur.in/courses.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --paper: #f5f2ed;
+    --warm-mid: #8c7b6b;
+    --accent: #c4651a;
+    --accent-light: #e8d5c0;
+    --border: #ddd8d0;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+  .nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--warm-mid);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 2px;
+    font-size: 11px !important;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 80px 56px 64px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 300;
+    line-height: 1.02;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .page-headline em { font-style: italic; color: var(--accent); }
+  .page-header-right {
+    font-size: 17px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    padding-bottom: 8px;
+  }
+
+  /* COURSE CARDS */
+  .courses-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .course-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    transition: box-shadow 0.2s;
+  }
+  .course-card:last-child { margin-bottom: 0; }
+  .course-card:hover { box-shadow: 0 4px 32px rgba(0,0,0,0.06); }
+
+  .course-left {
+    padding: 56px 48px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .course-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-light);
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    align-self: flex-start;
+  }
+
+  .course-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .course-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+
+  .course-subtitle {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+
+  .course-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+  }
+  .meta-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .course-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+  }
+
+  .course-right {
+    padding: 56px 48px;
+    background: var(--white);
+  }
+
+  .modules-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  .modules-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .module-item {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .module-item:first-child { padding-top: 0; }
+  .module-item:last-child { border-bottom: none; }
+
+  .module-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--accent-light);
+    min-width: 28px;
+    line-height: 1.4;
+  }
+
+  .module-content {}
+  .module-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .module-desc {
+    font-size: 12px;
+    color: var(--warm-mid);
+    line-height: 1.6;
+  }
+
+  /* WHY THESE COURSES */
+  .why-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--ink);
+  }
+  .why-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .why-item {}
+  .why-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .why-title em { font-style: italic; color: var(--accent); }
+  .why-body {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* FORMAT */
+  .format-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .format-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .format-headline em { font-style: italic; color: var(--accent); }
+  .format-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+  }
+  .format-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .format-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .format-text {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .format-text strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 80px 56px;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 48px;
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .faq-item {
+    padding: 32px 36px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+  .faq-item:nth-child(even) { border-right: none; }
+  .faq-item:nth-last-child(-n+2) { border-bottom: none; }
+  .faq-q {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .faq-a {
+    font-size: 13px;
+    color: var(--warm-mid);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 88px 56px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .cta-headline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--ink);
+  }
+  .cta-headline em { font-style: italic; color: var(--accent); }
+  .cta-body {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--white);
+    padding: 15px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    padding: 14px 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--warm-mid);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Ankur Kapur<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="courses.html" class="active">Courses</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="advisory.html">Advisory</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div>
+    <div class="page-eyebrow">Courses · Video Lessons</div>
+    <h1 class="page-headline">Learn it<br>properly.<br><em>Once.</em></h1>
+  </div>
+  <div class="page-header-right">
+    Two self-paced video courses — one for anyone who wants to get their financial life in order, one for investors who want to understand how to pick businesses, not just stocks. Built to last. Taught without an agenda.
+  </div>
+</section>
+
+<!-- COURSE 1 — PERSONAL FINANCE -->
+<section class="courses-section">
+
+  <div class="course-card">
+    <div class="course-left">
+      <div>
+        <span class="course-tag">Course 01 · Foundation</span>
+        <div class="course-num">01</div>
+        <h2 class="course-title">Personal Finance Masterclass</h2>
+        <p class="course-subtitle">A complete, structured course on managing your financial life — from first principles. Budgeting, insurance, taxes, mutual funds, goal planning, and everything in between. No jargon. No product pitches. Just a clear framework you can use for the rest of your life.</p>
+        <div class="course-meta">
+          <div class="meta-item">
+            <span class="meta-label">Format</span>
+            <span class="meta-value">Video Lessons</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Level</span>
+            <span class="meta-value">Beginner to Intermediate</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Access</span>
+            <span class="meta-value">Lifetime</span>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="course-btn">Enrol Now →</a>
+    </div>
+    <div class="course-right">
+      <div class="modules-label">What the Course Covers</div>
+      <ul class="modules-list">
+        <li class="module-item">
+          <span class="module-num">01</span>
+          <div class="module-content">
+            <div class="module-title">Financial Foundations</div>
+            <div class="module-desc">How money actually works. Net worth, cash flow, the psychology of spending, and why most people stay stuck.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">02</span>
+          <div class="module-content">
+            <div class="module-title">Insurance — The Foundation Layer</div>
+            <div class="module-desc">Term life, health, disability. How to size coverage correctly and avoid the traps the industry sets.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">03</span>
+          <div class="module-content">
+            <div class="module-title">Tax Planning</div>
+            <div class="module-desc">Income tax, capital gains, 80C and beyond. How to structure your finances to keep more of what you earn — legally.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">04</span>
+          <div class="module-content">
+            <div class="module-title">Mutual Funds & Asset Allocation</div>
+            <div class="module-desc">How to pick funds, build a portfolio, and stop chasing returns. The equity-debt-gold framework explained simply.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">05</span>
+          <div class="module-content">
+            <div class="module-title">Goal-Based Planning</div>
+            <div class="module-desc">Children's education, home purchase, retirement — how to plan for each goal separately and track progress without anxiety.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">06</span>
+          <div class="module-content">
+            <div class="module-title">Estate & Nomination</div>
+            <div class="module-desc">Wills, nominations, joint holdings. The basics most people ignore until it is too late.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COURSE 2 — DIRECT EQUITY -->
+  <div class="course-card">
+    <div class="course-left">
+      <div>
+        <span class="course-tag">Course 02 · Advanced</span>
+        <div class="course-num">02</div>
+        <h2 class="course-title">Direct Equity Investing</h2>
+        <p class="course-subtitle">For investors who want to go beyond mutual funds and understand how to evaluate businesses. How to read financials, assess management quality, identify durable moats, and construct a portfolio built for the long term — not the next quarter.</p>
+        <div class="course-meta">
+          <div class="meta-item">
+            <span class="meta-label">Format</span>
+            <span class="meta-value">Video Lessons</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Level</span>
+            <span class="meta-value">Intermediate to Advanced</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Access</span>
+            <span class="meta-value">Lifetime</span>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="course-btn">Enrol Now →</a>
+    </div>
+    <div class="course-right">
+      <div class="modules-label">What the Course Covers</div>
+      <ul class="modules-list">
+        <li class="module-item">
+          <span class="module-num">01</span>
+          <div class="module-content">
+            <div class="module-title">How to Think About Businesses</div>
+            <div class="module-desc">The difference between a stock and a business. Why starting with the business — not the price — changes everything.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">02</span>
+          <div class="module-content">
+            <div class="module-title">Reading Financial Statements</div>
+            <div class="module-desc">P&L, balance sheet, cash flow — what to look for, what to be suspicious of, and how Indian filings differ from the textbook.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">03</span>
+          <div class="module-content">
+            <div class="module-title">Moats & Competitive Advantage</div>
+            <div class="module-desc">How to identify durable advantages — brand, switching costs, network effects, cost leadership — and test whether they are real.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">04</span>
+          <div class="module-content">
+            <div class="module-title">Management Quality Assessment</div>
+            <div class="module-desc">How to read management — track record, capital allocation, related-party transactions, and what promoters say versus what they do.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">05</span>
+          <div class="module-content">
+            <div class="module-title">Valuation Frameworks</div>
+            <div class="module-desc">DCF, earnings multiples, asset-based approaches — when to use each and how to think in ranges rather than point estimates.</div>
+          </div>
+        </li>
+        <li class="module-item">
+          <span class="module-num">06</span>
+          <div class="module-content">
+            <div class="module-title">Building & Managing a Portfolio</div>
+            <div class="module-desc">Position sizing, diversification, when to sell, and how to stay rational when the market is not. A practical framework for long-term investors.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- WHY THESE COURSES -->
+<section class="why-section">
+  <div class="why-eyebrow">Why These Courses Are Different</div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-title">No product.<br>No <em>agenda.</em></div>
+      <div class="why-body">These courses are not built to sell you anything. No fund recommendations, no broker referrals, no upsells. The only interest here is that you leave better equipped than you arrived.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Built from<br><em>22 years</em> of practice.</div>
+      <div class="why-body">The content comes from real advisory work — the questions clients actually ask, the mistakes that actually cost people money, and the frameworks that have held up over two decades in Indian markets.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-title">Taught to<br><em>last.</em></div>
+      <div class="why-body">The principles here do not change with the market cycle or the regulatory flavour of the year. One purchase, lifetime access, and material that will still be relevant a decade from now.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMAT -->
+<section class="format-section">
+  <h2 class="format-headline">Self-paced.<br>Structured.<br><em>Yours to keep.</em></h2>
+  <ul class="format-list">
+    <li>
+      <span class="format-dot"></span>
+      <span class="format-text"><strong>Video lessons</strong> — screen-share with voiceover. Clear explanations, real examples, no filler.</span>
+    </li>
+    <li>
+      <span class="format-dot"></span>
+      <span class="format-text"><strong>Self-paced</strong> — go at your own speed. There are no live sessions, no deadlines, no cohorts to keep up with.</span>
+    </li>
+    <li>
+      <span class="format-dot"></span>
+      <span class="format-text"><strong>Lifetime access</strong> — one purchase. Every future update to the course is included at no extra charge.</span>
+    </li>
+    <li>
+      <span class="format-dot"></span>
+      <span class="format-text"><strong>Indian context throughout</strong> — Indian tax laws, Indian market structure, Indian fund categories, Indian regulatory framework. Not a global template applied here.</span>
+    </li>
+    <li>
+      <span class="format-dot"></span>
+      <span class="format-text"><strong>No prior knowledge required</strong> for Personal Finance. Basic investing familiarity helpful for the Direct Equity course.</span>
+    </li>
+  </ul>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-label">Common Questions</div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Do I need both courses?</div>
+      <div class="faq-a">Not necessarily. Personal Finance is the foundation — it covers everything you need to manage your financial life well. Direct Equity is for those who want to go further and invest in individual stocks.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I already know the basics. Is Personal Finance still useful?</div>
+      <div class="faq-a">Often yes. Most people who know the basics have gaps they are not aware of — insurance sizing, tax structure, nomination. The course is comprehensive enough to fill those.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is the Direct Equity course suitable for beginners?</div>
+      <div class="faq-a">It helps to have some familiarity with investing before starting. If you are completely new, start with Personal Finance first — it gives you the foundation the equity course builds on.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will the content be updated?</div>
+      <div class="faq-a">Yes. Tax laws change, regulations evolve, and new examples get added. All updates are included in your purchase at no additional cost.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-headline">Start where<br>you <em>are.</em></h2>
+  <div>
+    <p class="cta-body">Pick the course that matches where you are right now. You can always come back for the other. Both are one-time purchases with lifetime access — no subscriptions, no renewals.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-primary">Personal Finance Course →</a>
+      <a href="#" class="btn-outline">Direct Equity Course →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Ankur Kapur<span>.</span></div>
+  <ul class="footer-links">
+    <li><a href="contact.html#disclosures">Disclosures</a></li>
+    <li><a href="contact.html#privacy">Privacy</a></li>
+    <li><a href="contact.html#sebi">SEBI Registration</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Ankur Kapur · ankurkapur.in</div>
+</footer>
+
+</body>
+</html>
