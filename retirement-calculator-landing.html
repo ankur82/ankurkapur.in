@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Calculator — Ankur Kapur | The Informed Investor</title>
+<meta name="description" content="How much do you need to retire comfortably in India? Free retirement corpus calculator by SEBI Registered Investment Adviser Ankur Kapur.">
+<meta property="og:title" content="Free Retirement Calculator — Ankur Kapur">
+<meta property="og:description" content="Calculate exactly how much corpus you need to retire comfortably. Built for Indian investors. Free, no sign-up.">
+<meta property="og:url" content="https://ankurkapur.in/retirement-calculator-landing.html">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #faf8f4;
+  --bg2: #f2ede4;
+  --ink: #1a1a18;
+  --ink2: #3d3d38;
+  --muted: #8a8476;
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --gold-pale: #f5edd6;
+  --green: #2d6a4f;
+  --green-light: #40916c;
+  --border: #e0d8c8;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background: rgba(250,248,244,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-brand span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.nav-cta {
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.nav-cta:hover { background: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(184,134,11,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(45,106,79,0.05) 0%, transparent 60%);
+}
+
+/* Decorative lines */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(184,134,11,0.12);
+  border-radius: 50%;
+  animation: slowSpin 30s linear infinite;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 13%;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(184,134,11,0.08);
+  border-radius: 50%;
+  animation: slowSpin 20s linear infinite reverse;
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.1s forwards;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.2s forwards;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink2);
+  margin-bottom: 40px;
+  max-width: 480px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.35s forwards;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.45s forwards;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-primary svg { position: relative; z-index: 1; transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-secondary {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary:hover { color: var(--ink); border-color: var(--ink); }
+
+/* Hero stat cards */
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease 0.55s forwards;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.stat-card:hover::after { width: 100%; }
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-number sup {
+  font-size: 18px;
+  vertical-align: super;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.stat-card.accent {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.stat-card.accent .stat-number { color: var(--gold-light); }
+.stat-card.accent .stat-label { color: rgba(250,248,244,0.5); }
+.stat-card.accent::after { background: var(--gold-light); }
+
+/* ── WHAT IT DOES ── */
+.section {
+  padding: 100px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--ink2);
+  line-height: 1.8;
+  max-width: 520px;
+  font-weight: 300;
+  margin-bottom: 56px;
+}
+
+/* Feature grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 80px;
+}
+
+.feature {
+  background: var(--bg);
+  padding: 36px 32px;
+  transition: background 0.2s ease;
+}
+
+.feature:hover { background: var(--white); }
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--gold-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.feature-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── HOW IT WORKS ── */
+.steps-wrap {
+  background: var(--ink);
+  padding: 100px 48px;
+}
+
+.steps-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.steps-wrap .section-label { color: var(--gold-light); }
+.steps-wrap .section-label::before { background: var(--gold-light); }
+.steps-wrap h2 { color: var(--bg); }
+.steps-wrap .section-desc { color: rgba(250,248,244,0.55); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.step {
+  padding: 36px 28px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+
+.step:last-child { border-right: none; }
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  margin-bottom: -12px;
+}
+
+.step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--bg);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 12px;
+  color: rgba(250,248,244,0.45);
+  line-height: 1.7;
+}
+
+/* ── ABOUT ── */
+.about-wrap {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 100px 48px;
+}
+
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 12px;
+  color: var(--ink2);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-light);
+  flex-shrink: 0;
+}
+
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink2);
+  border-left: 3px solid var(--gold);
+  padding-left: 28px;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+/* ── CTA ── */
+.cta-wrap {
+  padding: 100px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-wrap::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-inner h2 {
+  font-size: clamp(36px, 5vw, 60px);
+  margin-bottom: 20px;
+}
+
+.cta-inner p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.cta-note {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 20px;
+  letter-spacing: 0.05em;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .hero { padding: 100px 24px 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .section { padding: 60px 24px; }
+  .features { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .about-wrap { padding: 60px 24px; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
+  .steps-wrap { padding: 60px 24px; }
+  .cta-wrap { padding: 60px 24px; }
+  footer { padding: 24px; }
+}
+
+@media (max-width: 560px) {
+  .steps { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://ankurkapur.in" class="nav-brand">
+    Ankur Kapur
+    <span>The Informed Investor</span>
+  </a>
+  <a href="/retirement_calculator.html" class="nav-cta">Open Calculator →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Free Tool · No Sign-up Required</div>
+      <h1>How much do you need to <em>retire comfortably?</em></h1>
+      <p class="hero-desc">
+        Most Indians underestimate their retirement corpus by 40–60%. This calculator gives you a precise, inflation-adjusted number — and tells you exactly what to do about it.
+      </p>
+      <div class="hero-actions">
+        <a href="/retirement_calculator.html" class="btn-primary">
+          <span>Calculate My Number</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#how-it-works" class="btn-secondary">How it works</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number"><sup>₹</sup>2–5Cr</div>
+        <div class="stat-label">Typical corpus needed for a middle-class retirement</div>
+      </div>
+      <div class="stat-card accent">
+        <div class="stat-number">6%</div>
+        <div class="stat-label">India's long-run inflation rate — the silent wealth eroder</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Years your corpus must last if you retire at 60</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Free</div>
+        <div class="stat-label">No login. No data collected. No sales calls.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT DOES -->
+<section class="section">
+  <div class="section-label">What the calculator covers</div>
+  <h2>Built for <em>Indian investors.</em><br>Not generic templates.</h2>
+  <p class="section-desc">
+    Most online calculators ignore inflation, rental income, EPF, and longevity risk. This one doesn't.
+  </p>
+
+  <div class="features reveal">
+    <div class="feature">
+      <div class="feature-icon">📐</div>
+      <div class="feature-title">Inflation-Adjusted Corpus</div>
+      <div class="feature-desc">Your ₹1L/month today will cost ₹3.2L in 20 years at 6% inflation. We account for this precisely using real return calculations.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🪣</div>
+      <div class="feature-title">Life-Bucket Framework</div>
+      <div class="feature-desc">See which phase you're in — Accumulation, Transition, Distribution, or Legacy — and what that means for your investment strategy.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📈</div>
+      <div class="feature-title">Visual Corpus Projection</div>
+      <div class="feature-desc">An interactive chart shows your corpus growing through retirement and depleting over time, so you can see if it lasts your lifetime.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🏦</div>
+      <div class="feature-title">EPF / PPF Integration</div>
+      <div class="feature-desc">Add your existing EPF and PPF balances — often the most overlooked asset in Indian retirement planning — to get an accurate picture.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🏠</div>
+      <div class="feature-title">Passive Income Offset</div>
+      <div class="feature-desc">Rental income, dividends, or any other recurring income reduces how much corpus you actually need to accumulate. Factor it in.</div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">💡</div>
+      <div class="feature-title">Actionable Insights</div>
+      <div class="feature-desc">The calculator doesn't just show numbers — it tells you if you're on track, what the gap is, and what levers to pull to fix it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="steps-wrap" id="how-it-works">
+  <div class="steps-inner">
+    <div class="section-label">How it works</div>
+    <h2 style="color:var(--bg);">Four steps.<br>Two minutes.</h2>
+    <p class="section-desc">No financial jargon. No complicated forms.</p>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Enter your ages</div>
+        <div class="step-desc">Current age, when you want to retire, and how long you expect to live. Most Indians underestimate longevity — plan for 85+.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Add your finances</div>
+        <div class="step-desc">Monthly expenses, current savings rate, existing corpus, EPF/PPF balance, and any passive income you expect in retirement.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Set return assumptions</div>
+        <div class="step-desc">Adjust pre-retirement returns (equity-heavy), post-retirement returns (balanced), and inflation. Defaults are realistic for India.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">See your number</div>
+        <div class="step-desc">Your corpus requirement, funding progress, monthly SIP needed, and specific actions to bridge any gap — all update in real time.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-wrap">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="section-label">About Ankur Kapur</div>
+      <div class="about-badges">
+        <div class="badge"><div class="badge-dot"></div>SEBI Registered Investment Adviser (RIA)</div>
+        <div class="badge"><div class="badge-dot"></div>CFA · CFP Credentials</div>
+        <div class="badge"><div class="badge-dot"></div>Fee-Only · Zero Commissions · No Conflicts</div>
+        <div class="badge"><div class="badge-dot"></div>15+ Years in Indian Financial Markets</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="about-quote">
+        "Most investors focus on picking stocks. Very few focus on whether they'll have enough money to never have to work again. That's the real question."
+      </div>
+      <p class="about-text">
+        I built this calculator because I was tired of seeing clients in their 50s realise they had under-saved — not because they didn't earn enough, but because they never had a clear number to target. Retirement planning isn't complicated. It just requires honesty about numbers and time.
+      </p>
+      <p class="about-text">
+        This tool is free, requires no sign-up, and collects no data. It's educational. For personalised advice based on your actual situation, that's what the RIA practice is for.
+      </p>
+      <a href="https://ankurkapur.in" class="btn-secondary" style="margin-top:8px;display:inline-block;">Learn more at ankurkapur.in →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-wrap">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center;">Ready?</div>
+    <h2>Find your <em>retirement number</em> today.</h2>
+    <p>Takes two minutes. Works on mobile. No sign-up, no email required. Just your number — and what to do about it.</p>
+    <a href="/retirement_calculator.html" class="btn-primary" style="display:inline-flex;">
+      <span>Open the Calculator</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <div class="cta-note">Free · Educational · SEBI compliant disclaimer included</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 Ankur Kapur · <a href="https://ankurkapur.in">ankurkapur.in</a></div>
+  <div>SEBI Registered Investment Adviser · Fee-Only Practice</div>
+  <div>This tool is for educational purposes only and does not constitute investment advice.</div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
