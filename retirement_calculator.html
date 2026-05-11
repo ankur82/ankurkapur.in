@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Calculator — Ankur Kapur</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0d0f0e;
+    --surface: #161a18;
+    --card: #1c211f;
+    --border: #2a3330;
+    --accent: #c8a96e;
+    --accent2: #4caf7d;
+    --accent3: #e07b54;
+    --text: #e8ede9;
+    --muted: #7a8c82;
+    --danger: #e05454;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background noise texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .brand span {
+    display: block;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    margin-top: 4px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 28px;
+  }
+
+  .card-title {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .field {
+    margin-bottom: 22px;
+  }
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  label strong {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 0 0 0 rgba(200,169,110,0.3);
+  }
+
+  input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px rgba(200,169,110,0.15);
+  }
+
+  .range-fill {
+    position: relative;
+  }
+
+  .range-fill input[type=range] {
+    background: linear-gradient(to right, var(--accent) 0%, var(--border) 0%);
+  }
+
+  /* Bucket tabs */
+  .bucket-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+  }
+
+  .tab {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 14px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+  }
+
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Results */
+  .result-hero {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .result-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .result-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--accent2);
+    line-height: 1;
+    transition: all 0.4s ease;
+  }
+
+  .result-amount.danger { color: var(--danger); }
+  .result-amount.warn { color: var(--accent3); }
+
+  .result-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 14px 16px;
+  }
+
+  .metric-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .metric-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .metric-value.positive { color: var(--accent2); }
+  .metric-value.negative { color: var(--danger); }
+
+  /* Chart */
+  .chart-wrap {
+    position: relative;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Gauge */
+  .gauge-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 20px;
+  }
+
+  /* Projection bar */
+  .projection-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .projection-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1), background 0.3s ease;
+  }
+
+  .projection-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  /* Insights */
+  .insight {
+    background: var(--surface);
+    border-left: 3px solid var(--accent2);
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .insight.warn { border-left-color: var(--accent3); }
+  .insight.danger { border-left-color: var(--danger); }
+
+  .insight strong { color: var(--text); }
+
+  /* Phase indicator */
+  .phase-indicator {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .phase-pill {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    transition: all 0.3s ease;
+  }
+
+  .phase-pill.active-phase {
+    background: rgba(200,169,110,0.15);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .phase-pill.inactive {
+    border-color: var(--border);
+    color: var(--muted);
+  }
+
+  /* Toggle */
+  .toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .toggle {
+    position: relative;
+    width: 36px;
+    height: 20px;
+  }
+
+  .toggle input { display: none; }
+
+  .toggle-track {
+    position: absolute;
+    inset: 0;
+    background: var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .toggle input:checked + .toggle-track {
+    background: var(--accent2);
+  }
+
+  .toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    transition: transform 0.2s;
+  }
+
+  .toggle input:checked ~ .toggle-thumb {
+    transform: translateX(16px);
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+
+  .footnote {
+    font-size: 10px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 40px;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+  }
+
+  .footnote a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Animated number */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in {
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  .section-note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: -16px;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="brand">
+      Ankur Kapur
+      <span>The Informed Investor</span>
+    </div>
+    <div style="font-size:11px;color:var(--muted);text-align:right;letter-spacing:0.05em;">Retirement<br>Calculator</div>
+  </header>
+
+  <h1>How much do you need<br>to <em>retire comfortably?</em></h1>
+
+  <div class="grid">
+    <!-- LEFT: Inputs -->
+    <div>
+      <div class="card">
+        <div class="card-title">Your Profile</div>
+
+        <!-- Life Phase -->
+        <div class="phase-indicator" id="phaseIndicator">
+          <div class="phase-pill inactive" data-phase="accumulation">Accumulation</div>
+          <div class="phase-pill inactive" data-phase="transition">Transition</div>
+          <div class="phase-pill inactive" data-phase="distribution">Distribution</div>
+          <div class="phase-pill inactive" data-phase="legacy">Legacy</div>
+        </div>
+
+        <div class="field range-fill">
+          <label>Current Age <strong id="val-age">35</strong></label>
+          <input type="range" id="currentAge" min="22" max="65" value="35" step="1">
+        </div>
+
+        <div class="field range-fill">
+          <label>Retirement Age <strong id="val-retire">60</strong></label>
+          <input type="range" id="retireAge" min="40" max="75" value="60" step="1">
+        </div>
+
+        <div class="field range-fill">
+          <label>Life Expectancy <strong id="val-life">85</strong></label>
+          <input type="range" id="lifeExp" min="70" max="100" value="85" step="1">
+        </div>
+
+        <div class="divider"></div>
+        <div class="card-title">Monthly Finances</div>
+
+        <div class="field range-fill">
+          <label>Monthly Expenses (₹) <strong id="val-exp">₹1,00,000</strong></label>
+          <input type="range" id="monthlyExp" min="20000" max="500000" value="100000" step="5000">
+        </div>
+
+        <div class="field range-fill">
+          <label>Monthly Savings (₹) <strong id="val-sav">₹40,000</strong></label>
+          <input type="range" id="monthlySav" min="5000" max="300000" value="40000" step="5000">
+        </div>
+
+        <div class="field range-fill">
+          <label>Existing Corpus (₹) <strong id="val-corpus">₹20L</strong></label>
+          <input type="range" id="existingCorpus" min="0" max="10000000" value="2000000" step="100000">
+        </div>
+
+        <div class="divider"></div>
+        <div class="card-title">Return Assumptions</div>
+
+        <div class="field range-fill">
+          <label>Pre-Retirement Return <strong id="val-preRet">10%</strong></label>
+          <input type="range" id="preReturn" min="4" max="18" value="10" step="0.5">
+        </div>
+
+        <div class="field range-fill">
+          <label>Post-Retirement Return <strong id="val-postRet">7%</strong></label>
+          <input type="range" id="postReturn" min="3" max="12" value="7" step="0.5">
+        </div>
+
+        <div class="field range-fill">
+          <label>Inflation Rate <strong id="val-inf">6%</strong></label>
+          <input type="range" id="inflation" min="3" max="12" value="6" step="0.5">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="toggle-row">
+          <span>Include EPF / PPF corpus</span>
+          <label class="toggle">
+            <input type="checkbox" id="includeEPF">
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+        </div>
+
+        <div id="epfSection" style="display:none;">
+          <div class="field range-fill">
+            <label>EPF + PPF Current Value (₹) <strong id="val-epf">₹5L</strong></label>
+            <input type="range" id="epfValue" min="0" max="5000000" value="500000" step="50000">
+          </div>
+        </div>
+
+        <div class="toggle-row">
+          <span>Include rental / other income</span>
+          <label class="toggle">
+            <input type="checkbox" id="includeRental">
+            <div class="toggle-track"></div>
+            <div class="toggle-thumb"></div>
+          </label>
+        </div>
+
+        <div id="rentalSection" style="display:none;">
+          <div class="field range-fill">
+            <label>Monthly Passive Income (₹) <strong id="val-rental">₹20,000</strong></label>
+            <input type="range" id="rentalIncome" min="0" max="200000" value="20000" step="5000">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div>
+      <div class="card">
+        <div class="card-title">Projection</div>
+
+        <div class="result-hero">
+          <div class="result-label">Corpus Required at Retirement</div>
+          <div class="result-amount" id="corpusRequired">₹0</div>
+          <div class="result-sub" id="corpusSub">Based on your inputs</div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-label">Years to Retire</div>
+            <div class="metric-value" id="yrsToRetire">25</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Retirement Duration</div>
+            <div class="metric-value" id="retireDuration">25 yrs</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Projected Corpus</div>
+            <div class="metric-value positive" id="projCorpus">₹0</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Monthly Need @ Retire</div>
+            <div class="metric-value" id="monthlyRetireNeed">₹0</div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="result-label" style="margin-bottom:8px;">Funding Progress</div>
+        <div class="projection-bar">
+          <div class="projection-fill" id="progressFill" style="width:0%;background:var(--accent2)"></div>
+        </div>
+        <div class="projection-labels">
+          <span>0%</span>
+          <span id="progressLabel">0% Funded</span>
+          <span>100%</span>
+        </div>
+
+        <!-- Chart -->
+        <div class="card-title">Corpus Growth</div>
+        <div class="chart-wrap">
+          <canvas id="growthChart"></canvas>
+        </div>
+
+        <div class="divider"></div>
+        <div class="card-title">Insights</div>
+
+        <div id="insights"></div>
+
+        <div class="divider"></div>
+        <div class="card-title">Monthly Savings Needed</div>
+        <div class="result-hero" style="padding:20px 0 16px;">
+          <div class="result-label">To fully fund retirement</div>
+          <div class="result-amount" id="monthlySavNeeded" style="font-size:36px;">₹0</div>
+          <div class="result-sub">vs your current ₹<span id="currentSavDisplay">0</span>/mo</div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric-label">Savings Gap</div>
+            <div class="metric-value" id="savingsGap">₹0/mo</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Savings Rate</div>
+            <div class="metric-value" id="savingsRate">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Calculations assume real returns and inflation-adjusted expenses. This tool is for educational purposes only.<br>
+    <a href="https://ankurkapur.in" target="_blank">ankurkapur.in</a> · SEBI Registered Investment Adviser
+  </div>
+</div>
+
+<script>
+// ---- Utility ----
+function fmt(n, compact=true) {
+  if (Math.abs(n) >= 10000000) return '₹' + (n/10000000).toFixed(1) + 'Cr';
+  if (Math.abs(n) >= 100000) return '₹' + (n/100000).toFixed(1) + 'L';
+  if (compact && Math.abs(n) >= 1000) return '₹' + (n/1000).toFixed(0) + 'K';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+
+function fmtFull(n) {
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+
+// ---- Inputs ----
+const inputs = {
+  currentAge: document.getElementById('currentAge'),
+  retireAge: document.getElementById('retireAge'),
+  lifeExp: document.getElementById('lifeExp'),
+  monthlyExp: document.getElementById('monthlyExp'),
+  monthlySav: document.getElementById('monthlySav'),
+  existingCorpus: document.getElementById('existingCorpus'),
+  preReturn: document.getElementById('preReturn'),
+  postReturn: document.getElementById('postReturn'),
+  inflation: document.getElementById('inflation'),
+  epfValue: document.getElementById('epfValue'),
+  rentalIncome: document.getElementById('rentalIncome'),
+};
+
+const displays = {
+  age: document.getElementById('val-age'),
+  retire: document.getElementById('val-retire'),
+  life: document.getElementById('val-life'),
+  exp: document.getElementById('val-exp'),
+  sav: document.getElementById('val-sav'),
+  corpus: document.getElementById('val-corpus'),
+  preRet: document.getElementById('val-preRet'),
+  postRet: document.getElementById('val-postRet'),
+  inf: document.getElementById('val-inf'),
+  epf: document.getElementById('val-epf'),
+  rental: document.getElementById('val-rental'),
+};
+
+// Update range fills
+function updateFill(input) {
+  const min = +input.min, max = +input.max, val = +input.value;
+  const pct = (val - min) / (max - min) * 100;
+  input.style.background = `linear-gradient(to right, var(--accent) ${pct}%, var(--border) ${pct}%)`;
+}
+
+Object.values(inputs).forEach(inp => {
+  updateFill(inp);
+  inp.addEventListener('input', () => {
+    updateFill(inp);
+    calculate();
+  });
+});
+
+// EPF / Rental toggles
+document.getElementById('includeEPF').addEventListener('change', function() {
+  document.getElementById('epfSection').style.display = this.checked ? 'block' : 'none';
+  calculate();
+});
+document.getElementById('includeRental').addEventListener('change', function() {
+  document.getElementById('rentalSection').style.display = this.checked ? 'block' : 'none';
+  calculate();
+});
+
+// ---- Phase logic ----
+function getPhase(age) {
+  if (age < 40) return 'accumulation';
+  if (age < 55) return 'transition';
+  if (age < 70) return 'distribution';
+  return 'legacy';
+}
+
+function updatePhase(age) {
+  const phase = getPhase(age);
+  document.querySelectorAll('.phase-pill').forEach(pill => {
+    if (pill.dataset.phase === phase) {
+      pill.className = 'phase-pill active-phase';
+    } else {
+      pill.className = 'phase-pill inactive';
+    }
+  });
+}
+
+// ---- Chart ----
+let chartCtx = document.getElementById('growthChart').getContext('2d');
+let chartData = { years: [], projected: [], required: [] };
+
+function drawChart() {
+  const canvas = document.getElementById('growthChart');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.offsetWidth;
+  const H = canvas.offsetHeight;
+  canvas.width = W * window.devicePixelRatio;
+  canvas.height = H * window.devicePixelRatio;
+  ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+  ctx.clearRect(0, 0, W, H);
+
+  const { years, projected, required } = chartData;
+  if (!years.length) return;
+
+  const allVals = [...projected, ...required].filter(v => v > 0);
+  const maxVal = Math.max(...allVals) * 1.1 || 1;
+  const minVal = 0;
+
+  const pad = { left: 40, right: 10, top: 10, bottom: 24 };
+  const cW = W - pad.left - pad.right;
+  const cH = H - pad.top - pad.bottom;
+
+  const xScale = i => pad.left + (i / (years.length - 1)) * cW;
+  const yScale = v => pad.top + (1 - (v - minVal) / (maxVal - minVal)) * cH;
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(42,51,48,0.8)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + (i / 4) * cH;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y);
+    ctx.lineTo(W - pad.right, y);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(122,140,130,0.6)';
+    ctx.font = '9px DM Sans';
+    ctx.fillText(fmt(maxVal * (1 - i/4)), 0, y + 3);
+  }
+
+  // Retirement line
+  const retireIdx = years.findIndex((_, i) => i === years.length - 1);
+  // Find the retirement year index
+  const currentAge = +inputs.currentAge.value;
+  const retireAge = +inputs.retireAge.value;
+  const retireYearOffset = retireAge - currentAge;
+  const retireIdx2 = years.findIndex(y => y >= retireAge);
+
+  if (retireIdx2 >= 0 && retireIdx2 < years.length) {
+    const rx = xScale(retireIdx2);
+    ctx.strokeStyle = 'rgba(200,169,110,0.25)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(rx, pad.top);
+    ctx.lineTo(rx, pad.top + cH);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(200,169,110,0.6)';
+    ctx.font = '9px DM Sans';
+    ctx.fillText('Retire', rx + 4, pad.top + 12);
+  }
+
+  // Required line (corpus needed)
+  if (required.some(v => v > 0)) {
+    ctx.strokeStyle = 'rgba(224,107,84,0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    required.forEach((v, i) => {
+      const x = xScale(i), y = yScale(v);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Projected fill
+  const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + cH);
+  grad.addColorStop(0, 'rgba(76,175,125,0.25)');
+  grad.addColorStop(1, 'rgba(76,175,125,0.01)');
+
+  ctx.beginPath();
+  projected.forEach((v, i) => {
+    const x = xScale(i), y = yScale(v);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.lineTo(xScale(projected.length - 1), pad.top + cH);
+  ctx.lineTo(pad.left, pad.top + cH);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Projected line
+  ctx.strokeStyle = 'rgba(76,175,125,0.9)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  projected.forEach((v, i) => {
+    const x = xScale(i), y = yScale(v);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // X axis labels
+  ctx.fillStyle = 'rgba(122,140,130,0.7)';
+  ctx.font = '9px DM Sans';
+  const step = Math.floor(years.length / 5);
+  years.forEach((yr, i) => {
+    if (i % step === 0 || i === years.length - 1) {
+      ctx.fillText(yr, xScale(i) - 8, pad.top + cH + 16);
+    }
+  });
+}
+
+// ---- Main Calculation ----
+function calculate() {
+  const curAge = +inputs.currentAge.value;
+  const retAge = +inputs.retireAge.value;
+  const lifeAge = +inputs.lifeExp.value;
+  const monthExp = +inputs.monthlyExp.value;
+  const monthSav = +inputs.monthlySav.value;
+  const existing = +inputs.existingCorpus.value;
+  const preRet = +inputs.preReturn.value / 100;
+  const postRet = +inputs.postReturn.value / 100;
+  const inf = +inputs.inflation.value / 100;
+  const epfVal = document.getElementById('includeEPF').checked ? +inputs.epfValue.value : 0;
+  const rentalMon = document.getElementById('includeRental').checked ? +inputs.rentalIncome.value : 0;
+
+  // Display updates
+  displays.age.textContent = curAge;
+  displays.retire.textContent = retAge;
+  displays.life.textContent = lifeAge;
+  displays.exp.textContent = fmt(monthExp, false);
+  displays.sav.textContent = fmt(monthSav, false);
+  displays.corpus.textContent = fmt(existing);
+  displays.preRet.textContent = (+inputs.preReturn.value) + '%';
+  displays.postRet.textContent = (+inputs.postReturn.value) + '%';
+  displays.inf.textContent = (+inputs.inflation.value) + '%';
+  displays.epf.textContent = fmt(+inputs.epfValue.value);
+  displays.rental.textContent = fmt(+inputs.rentalIncome.value, false);
+
+  // Ensure retire > curAge
+  if (retAge <= curAge) {
+    inputs.retireAge.value = curAge + 1;
+  }
+  if (lifeAge <= retAge) {
+    inputs.lifeExp.value = retAge + 1;
+  }
+
+  updatePhase(curAge);
+
+  const yearsToRetire = Math.max(1, retAge - curAge);
+  const retireDuration = Math.max(1, lifeAge - retAge);
+
+  // Monthly expense at retirement (inflation-adjusted)
+  const monthlyAtRetire = monthExp * Math.pow(1 + inf, yearsToRetire);
+  // Adjust for rental income
+  const netMonthlyAtRetire = Math.max(0, monthlyAtRetire - rentalMon * Math.pow(1 + inf, yearsToRetire));
+
+  // Corpus required at retirement (annuity formula, real rate)
+  const realPost = (1 + postRet) / (1 + inf) - 1;
+  let corpusRequired;
+  if (Math.abs(realPost) < 0.0001) {
+    corpusRequired = netMonthlyAtRetire * 12 * retireDuration;
+  } else {
+    corpusRequired = netMonthlyAtRetire * 12 * (1 - Math.pow(1 + realPost, -retireDuration)) / realPost;
+  }
+
+  // Projected corpus at retirement
+  const annualSav = monthSav * 12;
+  const totalExisting = existing + epfVal;
+  // FV of existing corpus
+  const fvExisting = totalExisting * Math.pow(1 + preRet, yearsToRetire);
+  // FV of annual savings
+  const fvSavings = annualSav * (Math.pow(1 + preRet, yearsToRetire) - 1) / preRet;
+  const projCorpus = fvExisting + fvSavings;
+
+  const pct = Math.min(200, (projCorpus / corpusRequired) * 100);
+  const funded = Math.min(100, pct);
+
+  // Monthly savings needed to hit target
+  const corpusNeeded = Math.max(0, corpusRequired - fvExisting);
+  let monthlySavNeeded;
+  if (Math.abs(preRet) < 0.0001 || yearsToRetire === 0) {
+    monthlySavNeeded = corpusNeeded / (yearsToRetire * 12 || 1);
+  } else {
+    monthlySavNeeded = corpusNeeded * preRet / (12 * (Math.pow(1 + preRet/12, yearsToRetire * 12) - 1));
+    // Approximate annual
+    monthlySavNeeded = (corpusNeeded * preRet) / ((Math.pow(1 + preRet, yearsToRetire) - 1) * 12);
+  }
+
+  const gap = monthlySavNeeded - monthSav;
+  const savRate = monthSav / (monthExp + monthSav) * 100;
+
+  // ---- Update DOM ----
+  const corpEl = document.getElementById('corpusRequired');
+  corpEl.textContent = fmt(corpusRequired);
+  corpEl.className = 'result-amount';
+
+  document.getElementById('corpusSub').textContent =
+    `For ${retireDuration} years of retirement (Age ${retAge}–${lifeAge})`;
+
+  document.getElementById('yrsToRetire').textContent = yearsToRetire;
+  document.getElementById('retireDuration').textContent = retireDuration + ' yrs';
+
+  const projEl = document.getElementById('projCorpus');
+  projEl.textContent = fmt(projCorpus);
+  projEl.className = 'metric-value ' + (projCorpus >= corpusRequired ? 'positive' : 'negative');
+
+  document.getElementById('monthlyRetireNeed').textContent = fmt(netMonthlyAtRetire, false);
+
+  const fill = document.getElementById('progressFill');
+  fill.style.width = funded + '%';
+  fill.style.background = funded >= 100 ? 'var(--accent2)' : funded >= 70 ? 'var(--accent3)' : 'var(--danger)';
+  document.getElementById('progressLabel').textContent = funded.toFixed(0) + '% Funded';
+
+  document.getElementById('monthlySavNeeded').textContent = fmt(monthlySavNeeded, false);
+  document.getElementById('currentSavDisplay').textContent = Math.round(monthSav/1000) + 'K';
+
+  const gapEl = document.getElementById('savingsGap');
+  gapEl.textContent = (gap > 0 ? '+' : '') + fmt(gap, false) + '/mo';
+  gapEl.className = 'metric-value ' + (gap <= 0 ? 'positive' : 'negative');
+
+  document.getElementById('savingsRate').textContent = savRate.toFixed(0) + '%';
+
+  // Insights
+  const insightsEl = document.getElementById('insights');
+  const insightsList = [];
+
+  if (projCorpus >= corpusRequired) {
+    insightsList.push({ type: 'ok', text: `You are on track. Your projected corpus of <strong>${fmt(projCorpus)}</strong> exceeds the requirement of <strong>${fmt(corpusRequired)}</strong>.` });
+  } else {
+    insightsList.push({ type: 'danger', text: `Funding gap of <strong>${fmt(corpusRequired - projCorpus)}</strong>. Increase monthly SIP or delay retirement to bridge this.` });
+  }
+
+  if (gap > monthSav * 0.5) {
+    insightsList.push({ type: 'warn', text: `You need to nearly double your savings to <strong>${fmt(monthlySavNeeded, false)}/mo</strong>. Consider step-up SIPs of 10–15% annually.` });
+  }
+
+  if (savRate < 20) {
+    insightsList.push({ type: 'warn', text: `Your savings rate is <strong>${savRate.toFixed(0)}%</strong>. A rate of 20–30% is generally recommended for a comfortable retirement.` });
+  }
+
+  if (inf > 7) {
+    insightsList.push({ type: 'warn', text: `High inflation assumption of <strong>${(+inputs.inflation.value)}%</strong> significantly increases your corpus requirement. Equity-heavy allocation may be needed.` });
+  }
+
+  if (retireDuration > 30) {
+    insightsList.push({ type: 'warn', text: `A <strong>${retireDuration}-year</strong> retirement is long. Sequence-of-returns risk is high — ensure adequate equity exposure in early retirement years.` });
+  }
+
+  if (gap <= 0) {
+    insightsList.push({ type: 'ok', text: `Your current savings of <strong>${fmt(monthSav, false)}/mo</strong> are sufficient. Consider increasing savings to build a legacy corpus.` });
+  }
+
+  insightsEl.innerHTML = insightsList.map(i =>
+    `<div class="insight ${i.type === 'ok' ? '' : i.type}">${i.text}</div>`
+  ).join('');
+
+  // Chart data
+  const years = [];
+  const projected = [];
+  const required = [];
+
+  for (let age = curAge; age <= lifeAge; age++) {
+    years.push(age);
+    const yr = age - curAge;
+    if (age <= retAge) {
+      // Accumulation
+      const fvE = totalExisting * Math.pow(1 + preRet, yr);
+      const fvS = yr > 0 ? annualSav * (Math.pow(1 + preRet, yr) - 1) / preRet : 0;
+      projected.push(fvE + fvS);
+    } else {
+      // Drawdown
+      const drawYrs = age - retAge;
+      const prevIdx = retAge - curAge;
+      const startCorpus = projected[prevIdx] || projCorpus;
+      const drawAmount = netMonthlyAtRetire * 12 * Math.pow(1 + inf, drawYrs);
+      // Simplified drawdown
+      let remaining = startCorpus;
+      for (let d = 0; d < drawYrs; d++) {
+        remaining = remaining * (1 + postRet) - netMonthlyAtRetire * 12 * Math.pow(1 + inf, d);
+      }
+      projected.push(Math.max(0, remaining));
+    }
+    required.push(corpusRequired);
+  }
+
+  chartData = { years, projected, required };
+  drawChart();
+}
+
+// Initial
+calculate();
+
+// Redraw on resize
+window.addEventListener('resize', () => {
+  drawChart();
+});
+</script>
+</body>
+</html>
