@@ -445,6 +445,54 @@
     color: var(--warm-mid);
     letter-spacing: 0.04em;
   }
+
+  /* ─── MOBILE NAV ───────────────────────────────── */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; height: 56px; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 56px; left: 0; right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0 16px;
+      align-items: stretch;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 12px 24px; font-size: 13px; }
+    .nav-cta { margin: 8px 20px 0; text-align: center; border-radius: 2px; }
+    .page-header { padding: 48px 20px 40px; grid-template-columns: 1fr; gap: 28px; }
+    .page-headline { font-size: 44px; }
+  }
+  @media (max-width: 480px) {
+    .page-headline { font-size: 36px; }
+  }
+
 </style>
 </head>
 <body>
@@ -452,12 +500,12 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">Ankur Kapur<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="about.html" class="active">About</a></li>
-    <li><a href="courses.html">Courses</a></li>
     <li><a href="research.html">Research</a></li>
     <li><a href="advisory.html">Advisory</a></li>
-    <li><a href="https://www.ankurkapur.com/blog" target="_blank">Writing</a></li>
+    <li><a href="https://ankurkapur.substack.com/" target="_blank">Writing</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -647,6 +695,22 @@
   </ul>
   <div class="footer-copy">© 2026 Ankur Kapur · ankurkapur.in</div>
 </footer>
+
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
