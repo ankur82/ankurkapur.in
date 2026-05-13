@@ -485,6 +485,8 @@
     padding: 36px 56px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
     align-items: center;
   }
   .footer-logo {
@@ -534,29 +536,56 @@
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+
+
+  /* ═══ MOBILE — research.html ═══ */
   @media (max-width: 768px) {
     nav { padding: 0 20px; height: 56px; }
     .nav-toggle { display: flex; }
     .nav-links {
-      display: none;
-      position: absolute;
-      top: 56px; left: 0; right: 0;
-      background: var(--paper);
-      border-bottom: 1px solid var(--border);
-      flex-direction: column;
-      gap: 0;
-      padding: 8px 0 16px;
-      align-items: stretch;
+      display: none; position: absolute; top: 56px; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      flex-direction: column; gap: 0; padding: 8px 0 16px; align-items: stretch;
     }
     .nav-links.open { display: flex; }
     .nav-links li { width: 100%; }
     .nav-links a { display: block; padding: 12px 24px; font-size: 13px; }
-    .nav-cta { margin: 8px 20px 0; text-align: center; border-radius: 2px; }
+    .nav-cta { margin: 8px 20px 0; text-align: center; }
+
     .page-header { padding: 48px 20px 40px; grid-template-columns: 1fr; gap: 28px; }
     .page-headline { font-size: 44px; }
+
+    .intro-section { padding: 40px 20px; grid-template-columns: 1fr; gap: 32px; }
+
+    .tiers-section { padding: 48px 20px; }
+    .tiers-grid { grid-template-columns: 1fr; }
+    .tier-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .tier-card:last-child { border-bottom: none; }
+
+    .what-section { padding: 48px 20px; }
+    .what-grid { grid-template-columns: 1fr 1fr; }
+    .what-item:nth-child(2n) { border-right: none; }
+    .what-item:nth-child(n+3) { border-top: 1px solid var(--border); }
+
+    .portfolio-section { padding: 48px 20px; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+
+    .faq-section { padding: 48px 20px; }
+    .faq-grid { grid-template-columns: 1fr; }
+
+    .cta-section { padding: 56px 20px; grid-template-columns: 1fr; gap: 36px; }
+    .cta-headline { font-size: 38px; }
+    .cta-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
   }
   @media (max-width: 480px) {
     .page-headline { font-size: 36px; }
+    .what-grid { grid-template-columns: 1fr; }
+    .what-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .what-item:last-child { border-bottom: none; }
+    .portfolio-grid { grid-template-columns: 1fr; }
   }
 
 </style>

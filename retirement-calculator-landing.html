@@ -614,6 +614,24 @@ footer a:hover { color: var(--ink); }
   .steps { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr; }
 }
+
+  /* ═══ MOBILE — retirement-calculator-landing.html ═══ */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; height: 56px; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none; position: absolute; top: 56px; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      flex-direction: column; gap: 0; padding: 8px 0 16px; align-items: stretch;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 12px 24px; font-size: 13px; }
+    .nav-cta { margin: 8px 20px 0; text-align: center; }
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; gap: 20px; }
+    .footer-links { flex-wrap: wrap; gap: 16px; }
+  }
+
 </style>
 </head>
 <body>
@@ -804,6 +822,24 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+  }
 </script>
 
 </body>
