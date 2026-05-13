@@ -509,11 +509,24 @@
     .step-card { border-right: none; border-bottom: 1px solid var(--border); }
     .step-card:last-child { border-bottom: none; }
 
+    .what-section { padding: 48px 20px; }
+    .what-grid { grid-template-columns: 1fr; }
+    .what-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .what-card:last-child { border-bottom: none; }
+
+    .buckets-section { padding: 48px 20px; }
+    .buckets-grid { grid-template-columns: 1fr 1fr; }
+    .bucket-card:nth-child(2n) { border-right: none; }
+    .bucket-card:nth-child(n+3) { border-top: 1px solid var(--border); }
+
     .scope-section { padding: 48px 20px; }
     .scope-grid { grid-template-columns: 1fr; gap: 28px; }
 
     .not-for-section { padding: 48px 20px; }
     .not-grid { grid-template-columns: 1fr 1fr; }
+
+    .not-everyone { padding: 48px 20px; grid-template-columns: 1fr; gap: 36px; }
+    .ne-headline { font-size: 32px; }
 
     .fee-section { padding: 48px 20px; }
     .fee-grid { grid-template-columns: 1fr; }
